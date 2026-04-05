@@ -5,7 +5,7 @@ import os
 import requests
 import time
 
-CHROMA_PERSIST_DIR_PATH = os.path.join('..', 'Task3', '.chroma')
+CHROMA_PERSIST_DIR_PATH = os.path.join('.', '.chroma')
 LLM_API_URL = os.getenv("LLM_API_URL", "http://localhost:8000/api/v1/generate")
 LLM_MAX_TOKENS = 500
 LLM_TEMPERATURE = 0.7
@@ -49,7 +49,8 @@ def get_response(question: str) -> str:
 def main():
     print("RAG-бот запущен. Введите 'exit' для выхода.")
     while True:
-        user_input = input("Вопрос: ")
+        print("Вопрос: ", end='')
+        user_input = input()
         if user_input.lower() in ('exit', 'quit'):
             break
         if IS_DEBUG:
@@ -61,4 +62,4 @@ def main():
             print(f'Время выполнения: {end_time-start_time}')
 
 if __name__ == "__main__":
-    main()    
+    main()

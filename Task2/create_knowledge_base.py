@@ -2,7 +2,7 @@ import os
 import json
 
 def replace_names(text_content: str) -> str:
-    path = os.path.join('terms_map.json')
+    path = os.path.join('.', 'Task2', 'terms_map.json')
     with open(path, 'r') as dict_file:
         terms_map = json.load(dict_file)
         
@@ -14,10 +14,10 @@ def replace_names(text_content: str) -> str:
 
 if __name__ == '__main__':
 
-    dir_raw = 'raw'
+    dir_raw = os.path.join('.', 'Task2', 'raw')
     txt_files = [f for f in os.listdir(dir_raw) if f.endswith('.txt')]
 
-    directory = 'knowledge_base'
+    directory = os.path.join('.', 'Task4-5', 'knowledge_base')
     if not os.path.exists(directory):
         os.makedirs(directory)
     

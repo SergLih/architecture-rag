@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  rag-bot:
+    build: .
+    container_name: rag-bot
+    ports:
+      - 8000:8000

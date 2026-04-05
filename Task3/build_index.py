@@ -5,11 +5,11 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 from chromadb import Client, Settings
 
-KNOWLEDGE_BASE_PATH = os.path.join('..', 'Task2', 'knowledge_base')
+KNOWLEDGE_BASE_PATH = os.path.join('.', 'Task4-5', 'knowledge_base')
 CHUNK_SIZE = 500
 CHUNK_OVERLAP = 100
 MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
-CHROMA_PERSIST_DIR = './.chroma'
+CHROMA_PERSIST_DIR = os.path.join('.', 'Task4-5', '.chroma')
 
 start_time = time.time()
 
@@ -76,6 +76,7 @@ print(f"Путь к базе данных: {CHROMA_PERSIST_DIR}")
 # Запрос к индексу
 
 query_text = "Terminator"
+# query_text = "Суперпароль root"
 query_embedding = model.encode(query_text)
 
 results = collection.query(
